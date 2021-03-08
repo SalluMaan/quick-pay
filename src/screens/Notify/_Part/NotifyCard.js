@@ -14,17 +14,13 @@ import { height_screen, width_screen } from "../../../utils/dimensions";
 import { NOT_FOUND } from "../../../utils/URL";
 import { Ionicons } from "@expo/vector-icons";
 import Color from "../../../utils/color";
+import FONTS from "../../../utils/fonts";
 
-const NotifyCard = memo(({ text, size, position }) => {
+const NotifyCard = memo(({ text, size, position, image }) => {
   return (
     <View style={styles.mainView}>
       <View style={styles.subView1}>
-        <Ionicons
-          name="notifications-outline"
-          size={18}
-          color="#000"
-          style={styles.iconEdit}
-        />
+        <Image source={image} />
       </View>
       <View style={styles.subView2}>
         <Text style={styles.notificationText}>
@@ -56,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    marginTop: height_screen * 0.01,
+    marginTop: height_screen * 0.02,
   },
   subView1: {
     width: width_screen * 0.15,
@@ -89,9 +85,12 @@ const styles = StyleSheet.create({
     paddingLeft: width_screen * 0.009,
     paddingTop: height_screen * 0.005,
   },
-  notificationText: {},
+  notificationText: {
+    fontFamily: FONTS.Regular,
+  },
   notificationDate: {
     color: "#a4a4a4",
     fontSize: height_screen * 0.017,
+    fontFamily: FONTS.Regular,
   },
 });

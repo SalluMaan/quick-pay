@@ -1,3 +1,6 @@
+import axios from "axios";
+import Color from "../color";
+
 let [currentLat, currentLong] = [null, null];
 
 export const getUserPosition = () => {
@@ -18,8 +21,6 @@ export const getUserPosition = () => {
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
   );
 };
-
-
 
 export const splitLatLongStr = (latLong) => {
   const [strLat, strLong] = latLong?.split(",");
@@ -60,4 +61,41 @@ export const getDistanceByLatLong = (
     }
     return Math.ceil(dist);
   }
+};
+
+export const getLocationCheck = () => {
+  return axios.get("https://extreme-ip-lookup.com/json/");
+};
+
+export const getLocation2 = (callBack) => {
+  axios
+    .get("https://extreme-ip-lookup.com/json/")
+    .then((res) => {
+      const data = res.data;
+      callBack(data);
+    })
+    .catch((err) => {
+      return Promise.reject(err);
+    });
+};
+
+export const checkCurrency = (data) => {
+  var FalseCase = "USD";
+
+  var x = ["USD", "ARS", "SOL", "CLP"];
+
+  const found = x.find((element) => element === data);
+  return found ? found : FalseCase;
+};
+
+export const dataChart = {
+  labels: ["January", "February", "March", "April", "May", "June"],
+  datasets: [
+    {
+      data: [20, 45, 28, 80, 99, 43],
+      color: (opacity = 1) => Color.LINEAR_CLR_2, // optional
+      strokeWidth: 2, // optional
+    },
+  ],
+  legend: ["Days"], // optional
 };

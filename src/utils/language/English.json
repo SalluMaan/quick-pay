@@ -1,0 +1,58 @@
+{
+  "Login": {
+    "main_Heading": "Sign In to QuickiPay",
+    "text_Input_Field_User_Name": "Username or email",
+    "text_Input_Field_Password": "Password",
+    "text_Input_Field_User_Name_Placeholder": "Enter your user name or email",
+    "text_Input_Field_Password_Placeholder": "Enter your password",
+    "link_Forgot_Password": "Forget Password?",
+    "login_Button": "Sign In",
+    "link_Sign_up": "New to QuickPay?",
+    "Sign_up": "Sign Up",
+    "Login_Btn": "Login"
+  },
+  "Register": {
+    "main_Heading": "Sign Up",
+    "simple_Heading": "Pay in seconds with quickpay",
+    "text_Input_Field_Username": "Username",
+    "text_Input_Field_Username_Placeholder": "Enter your username",
+    "text_Input_Field_Email": "Email",
+    "text_Input_Field_Email_Placeholder": "Enter your email here",
+    "text_Input_Field_Password": "Password",
+    "text_Input_Field_Password_Placeholder": "Enter your password here",
+    "text_Input_Field_Confirm_Password": "Confirm Password",
+    "text_Input_Field_Confirm_Password_Placholder": "Enter your password again",
+    "text_Input_Field_Contact": "Contact",
+    "text_Input_Field_Contact_Placeholder": "Enter your contact number",
+    "text_Input_Field_Country": "Country",
+    "text_Input_Field_Country_Placeholder": "Select your country",
+    "text_Input_Field_Address": "Address",
+    "text_Input_Field_Addres_Placeholder": "Enter your address",
+    "link_Text": "Already have an account?",
+    "link_to_Login": "Sign In",
+    "signUp_button": "Sign Up"
+  },
+  "New_Password": {
+    "main_Heading": "Create new password",
+    "simple_Heading": "Your new password must be different from previous used passwords",
+    "text_Input_Field_Password": "Password",
+    "text_Under_Input_Field_Password": "Must be atleast 8 characters",
+    "text_Input_field_Confirm_Password": "Confirm password",
+    "text_Under_Input_Field_Confirm_Password": "Both passwords must match",
+    "reset_Button": "Reset Password"
+  },
+  "Forget_Password": {
+    "main_Heading": "Reset Password",
+    "simple_Heading": "Enter an email associated with your account and we will send an eamail with instruction to reset your password",
+    "text_Input_Field_Email": "Email",
+    "text_Input_Field_Email_Placeholder": "Enter your email to reset your password",
+    "send_Email_Button": "Sent Email"
+  },
+  "Change_Password": {
+    "main_Heading": "Reset Password",
+    "text_Input_Field_Current_Password": "Current Password",
+    "text_Input_Field_New_Password": "New Password",
+    "text_Input_Field_Confirm_Password": "Confirm Password",
+    "update_Password_Button": "Update Password"
+  }
+}

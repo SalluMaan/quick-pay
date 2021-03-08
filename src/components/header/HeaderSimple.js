@@ -15,6 +15,7 @@ import Color from "../../utils/color";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import FONTS from "../../utils/fonts";
 
 const HeaderSimple = memo(({ heading }) => {
   const insets = useSafeAreaInsets();
@@ -61,5 +62,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: height_screen * 0.025,
     marginLeft: width_screen * 0.01,
+    fontFamily: FONTS.Medium,
   },
 });

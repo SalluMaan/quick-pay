@@ -10,11 +10,18 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { height_screen, width_screen } from "../../utils/dimensions";
+import FONTS from "../../utils/fonts";
 
-const TextHead = memo(({ text, size, position }) => {
+const TextHead = memo(({ text, size, position, color, width, onPress }) => {
   return (
     <>
-      <Text style={[styles.textStyle, { fontSize: size, textAlign: position }]}>
+      <Text
+        style={[
+          styles.textStyle,
+          { fontSize: size, textAlign: position, color: color, width: width },
+        ]}
+        onPress={onPress}
+      >
         {text}
       </Text>
     </>
@@ -29,6 +36,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginTop: height_screen * 0.02,
-    fontWeight: "bold",
+    // fontWeight: "bold",
+    fontFamily: FONTS.Bold,
   },
 });

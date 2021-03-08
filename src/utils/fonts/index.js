@@ -1,10 +1,12 @@
 const FONTS_APP = {
-  Montserrat: {
-    Medium: "Montserrat-Medium",
-    Regular: "Montserrat-Regular",
+  Raleway: {
+    Medium: "Raleway-Medium",
+    Regular: "Raleway-Regular",
+    Bold: "Raleway-Bold",
+    SemiBold: "Raleway-SemiBold",
   },
 };
 
-const FONTS = FONTS_APP.Montserrat;
+const FONTS = FONTS_APP.Raleway;
 
 export default FONTS;

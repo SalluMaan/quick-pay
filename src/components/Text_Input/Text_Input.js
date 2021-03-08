@@ -10,19 +10,51 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { height_screen, width_screen } from "../../utils/dimensions";
+import { FontAwesome5 } from "@expo/vector-icons";
+import Color from "../../utils/color";
+import FONTS from "../../utils/fonts";
+import English from "../../utils/language/English.json";
+import Spanish from "../../utils/language/Spanish.json";
 
 const Text_Input = memo(
-  ({ style, placeholder, placeholderColor, secureText, setdata, label }) => {
+  ({
+    style,
+    placeholder,
+    placeholderColor,
+    secureText,
+    setdata,
+    label,
+    height,
+    width = width_screen * 0.8,
+    value,
+    disable,
+  }) => {
+    const [lock, setlock] = useState(false);
     return (
       <>
         <Text style={styles.textStyle}>{label}</Text>
-        <TextInput
-          style={styles.textInput}
-          placeholder={placeholder}
-          onChangeText={(data) => setdata(data)}
-          placeholderTextColor={placeholderColor}
-          secureTextEntry={secureText}
-        />
+        <View style={{ flexDirection: "row" }}>
+          <TextInput
+            style={[styles.textInput, { height: height, width: width }]}
+            placeholder={placeholder}
+            onChangeText={(data) => setdata(data)}
+            placeholderTextColor={placeholderColor}
+            secureTextEntry={lock ? false : secureText}
+            value={value}
+            // disable={disable}
+            editable={disable}
+          />
+          {label === English.Login.text_Input_Field_Password ||
+          label === Spanish.Login.text_Input_Field_Password ? (
+            <TouchableOpacity onPress={() => setlock(!lock)}>
+              <FontAwesome5
+                name={lock ? "unlock" : "lock"}
+                size={18}
+                color={Color.BLACK}
+              />
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </>
     );
   }
@@ -43,5 +75,6 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontSize: 15,
     marginTop: height_screen * 0.01,
+    fontFamily: FONTS.Regular,
   },
 });

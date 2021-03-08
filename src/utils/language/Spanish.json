@@ -1,0 +1,58 @@
+{
+  "Login": {
+    "main_Heading": "Registrarse en QuickiPay",
+    "text_Input_Field_User_Name": "Nombre de usuario o correo electrónico",
+    "text_Input_Field_User_Name_Placeholder": "nombre de usuario o correo electrónico",
+    "text_Input_Field_Password": "contraseña",
+    "text_Input_Field_Password_Placeholder": "Ingresa tu contraseña",
+    "link_Forgot_Password": "contraseña olvidada",
+    "login_Button": "Registrarse",
+    "link_Sign_up": "nuevo en quickpay?",
+    "Sign_up": "Inscribirse",
+    "Login_Btn": "Registrarse"
+  },
+  "Register": {
+    "main_heading": "Inscribirse",
+    "simple_heading": "Pague en segundos con QickPay",
+    "text_Input_Field_Username": "Nombre de usuario",
+    "text_Input_Field_Username_Placeholder": "Ingrese su nombre de usuario",
+    "text_Input_Field_Email": "Email",
+    "text_Input_Field_Email_Placeholder": "Introduce tu correo electrónico",
+    "text_Input_Field_Password": "Contraseña",
+    "text_Input_Field_Password_Placeholder": "ingrese su contraseña aquí",
+    "text_Input_Field_Confirm_Password": "confirmar Contraseña",
+    "text_Input_Field_Confirm_Password_Placholder": "ingrese su contraseña nuevamente",
+    "text_Input_Field_Contact": "contacto",
+    "text_Input_Field_Contact_Placeholder": "ingrese su número de contacto",
+    "text_Input_Field_Country": "país",
+    "text_Input_Field_Country_Placeholder": "selecciona tu pais",
+    "text_Input_Field_Address": "Dirección",
+    "text_Input_Field_Addres_Placeholder": "ingrese su direccion",
+    "link_text": "Ya tienes una cuenta?",
+    "link_to_login": "Registrarse",
+    "signUp_button": "Inscribirse"
+  },
+  "New_Password": {
+    "main_Heading": "Crear nueva contraseña",
+    "simple_Heading": "Su nueva contraseña debe ser diferente de las contraseñas utilizadas anteriormente",
+    "text_Input_Field_Password": "Contraseña",
+    "text_Under_Input_Field_Password": "Debe tener al menos 8 caracteres",
+    "text_Input_Field_Confirm_Password": "confirmar Contraseña",
+    "text_Under_Input_Field_Confirm_Password": "Ambas contraseñas deben coincidir",
+    "reset_Button": "Restablecer la contraseña"
+  },
+  "Forget_Password": {
+    "main_Heading": "Restablecer la contraseña",
+    "simple_Heading": "Ingrese un correo electrónico asociado con su cuenta y le enviaremos un correo electrónico con instrucciones para restablecer su contraseña",
+    "text_Input_Field_Email": "Email",
+    "text_Input_Field_Email_Placeholder": "Introduce tu correo electrónico",
+    "send_Email_Button": "Email enviado"
+  },
+  "Change_Password": {
+    "main_heading": "Restablecer la contraseña",
+    "text_Input_field_current_password": "Contraseña actual",
+    "text_Input_field_new_password": "Nueva contraseña",
+    "text_Input_field_confirm_password": "Confirmar Contraseña",
+    "update_password_button": "Actualiza contraseña"
+  }
+}

@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "quick-pay",
+    "name": "Quicki Pay",
     "slug": "quick-pay",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.maan_sallu786.quickpay"
     },
     "androidStatusBar": {
       "backgroundColor": "#000"

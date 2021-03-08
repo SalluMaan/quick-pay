@@ -20,16 +20,30 @@ interface ButtonFilterProps {
 }
 
 const MainButton = memo(
-  ({ onPress, text, btnStyle = styles.submitBtn }: ButtonFilterProps) => {
+  ({
+    onPress,
+    text,
+    btnStyle = styles.submitBtn,
+    height,
+    width,
+    paddingTop = height_screen * 0.008,
+  }: ButtonFilterProps) => {
+    const { loading } = useSelector((state) => state.loading);
+
     return (
       <TouchableOpacity onPress={onPress}>
         <LinearGradient
           colors={[Color.LINEAR_CLR_1, Color.LINEAR_CLR_2]}
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 1 }}
-          style={{ borderRadius: 10, marginTop: height_screen * 0.01 }}
+          style={{
+            borderRadius: 10,
+            marginTop: height_screen * 0.01,
+            width: width,
+            height: height,
+          }}
         >
-          <Text style={btnStyle}>{text}</Text>
+          <Text style={[btnStyle, { paddingTop: paddingTop }]}>{text}</Text>
           <View
             style={{
               position: "absolute",
@@ -41,7 +55,7 @@ const MainButton = memo(
               justifyContent: "center",
             }}
           >
-            <ActivityIndicator color="#fff" animating={true} size="small" />
+            <ActivityIndicator color="#fff" animating={loading} size="small" />
           </View>
         </LinearGradient>
       </TouchableOpacity>
@@ -63,5 +77,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     alignSelf: "center",
     fontSize: 15,
+    fontFamily: FONTS.Regular,
   },
 });
