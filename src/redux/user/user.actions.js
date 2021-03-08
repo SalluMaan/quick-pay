@@ -59,7 +59,7 @@ export const getBanksByCountryName = (Req) => (dispatch) => {
   axios.post("/api/get-banks", Req).then((res) => {
     if (res.status === 200) {
       const data = res.data.data.banks;
-      console.log("Response getBanksByCountryName", data);
+      console.log("Response getBanksByCountryName", data, res.data);
       dispatch({
         type: GET_BANKS,
         payload: data,

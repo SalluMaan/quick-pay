@@ -25,6 +25,10 @@ import Home from "../../screens/Home/Home";
 import Exchange from "../../screens/Exchange/Exchange";
 import Withdraw from "../../screens/Withdraw/Withdraw";
 import BankDeposit2 from "../../screens/Deposit/BankDeposit2";
+import WithdrawBank from "../../screens/TabScreen/TabWithdraw/WithdrawBank";
+import WithdrawCrypto from "../../screens/TabScreen/TabWithdraw/WithdrawCrypto";
+import WithdrawbankTwo from "../../screens/TabScreen/TabWithdraw/WithdrawbankTwo";
+import WithdrawPaypal from "../../screens/TabScreen/TabWithdraw/WithdrawPaypal";
 
 const authStack = createStackNavigator();
 
@@ -59,6 +63,16 @@ const PrivateNavigator = () => (
     <authStack.Screen name={ROUTES.ScanAndPay} component={ScanAndPay} />
     <authStack.Screen name={ROUTES.Exchange} component={Exchange} />
     <authStack.Screen name={ROUTES.Withdraw} component={Withdraw} />
+    <authStack.Screen
+      name={ROUTES.WithdrawLocalBank}
+      component={WithdrawBank}
+    />
+    <authStack.Screen name={ROUTES.WithdrawCrypto} component={WithdrawCrypto} />
+    <authStack.Screen
+      name={ROUTES.WithdrawInternationalBank}
+      component={WithdrawbankTwo}
+    />
+    <authStack.Screen name={ROUTES.WithdrawPaypal} component={WithdrawPaypal} />
 
     {/* <authStack.Screen name={ROUTES.Register} component={Register} />
     <authStack.Screen name={ROUTES.ForgotPassword} component={ForgotPassword} /> */}

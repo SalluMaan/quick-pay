@@ -17,7 +17,7 @@ import Color from "../../../utils/color";
 import { LinearGradient } from "expo-linear-gradient";
 import FONTS from "../../../utils/fonts";
 
-const WithdrawCard = memo(({ text, size, position }) => {
+const WithdrawCard = memo(({ text, size, position, amount }) => {
   return (
     <LinearGradient
       colors={[Color.LINEAR_CLR_1, Color.LINEAR_CLR_2]}
@@ -32,7 +32,7 @@ const WithdrawCard = memo(({ text, size, position }) => {
       </View>
       <View style={styles.amountView}>
         <Text style={styles.amountViewSign}>$</Text>
-        <Text style={styles.amountViewText}>2,123</Text>
+        <Text style={styles.amountViewText}>{amount}</Text>
       </View>
     </LinearGradient>
   );

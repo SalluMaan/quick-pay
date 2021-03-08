@@ -26,7 +26,7 @@ import Currency from "../../../utils/currency";
 import WithdrawCard from "../../Withdraw/_Part/WithdrawCard";
 import { alertMessage } from "../../../utils/common/alertToastMessages";
 
-export default TabWithdraw = () => {
+export default WithdrawbankTwo = () => {
   const [email, setemail] = useState("");
   const [wallet, setwallet] = useState("");
   const [Country, setCountry] = useState("");
@@ -49,12 +49,9 @@ export default TabWithdraw = () => {
   }, [dispatch]);
 
   const selectCountry = (country) => {
-    console.log("Country", country.toLowerCase());
+    console.log({ country });
     setCountry(country);
-    const data = country.toLowerCase();
-    const formData = new FormData();
-    formData.append("country", data);
-    dispatch(getBanksByCountryName(formData));
+    dispatch(getBanksByCountryName(country));
   };
 
   const handleLocalBank = () => {
@@ -96,7 +93,7 @@ export default TabWithdraw = () => {
             paddingHorizontal: width_screen * 0.05,
           }}
         >
-          <Text style={styles.depositText}>Local Bank</Text>
+          <Text style={styles.depositText}>International Bank</Text>
         </View>
         <StatusBar style="dark" />
         <View style={styles.container2}>

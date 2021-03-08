@@ -22,6 +22,10 @@ const ROUTES = {
   Home: "Home", //
   Exchange: "Exchange", //
   Withdraw: "Withdraw", //
+  WithdrawLocalBank: "WithdrawLocalBank", //
+  WithdrawCrypto: "WithdrawCrypto", //
+  WithdrawInternationalBank: "WithdrawInternationalBank", //
+  WithdrawPaypal: "WithdrawPaypal", //
 };
 
 export default ROUTES;

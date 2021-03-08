@@ -19,33 +19,28 @@ import FONTS from "../../../utils/fonts";
 import WithdrawCard from "../../Withdraw/_Part/WithdrawCard";
 import Currency from "../../../utils/currency";
 import { useSelector } from "react-redux";
-import { add } from "react-native-reanimated";
 
-export default WithdrawCrypto = () => {
+export default WithdrawPaypal = () => {
   const [email, setemail] = useState("");
   const { login_Session } = useSelector((state) => state?.auth);
   const [currency, setcurrency] = useState("");
-  const [cryptoType, setcryptoType] = useState("");
-
   const [amount, setamount] = useState("");
-  const [address, setaddress] = useState("");
-  const [rateFx, setrateFx] = useState("");
 
-  // const handleLocalBank = () => {
-  //   const validate = currency && amount && email;
+  const handleLocalBank = () => {
+    const validate = currency && amount && email;
 
-  //   if (validate) {
-  //     const formData = new FormData();
-  //     formData.append("bank", "paypal");
-  //     formData.append("type", "null");
-  //     formData.append("currency", currency);
-  //     formData.append("amount", amount);
-  //     formData.append("email", email);
-  //     console.log("FormData", formData);
-  //   } else {
-  //     alertMessage("Kindly Select All the Fields");
-  //   }
-  // };
+    if (validate) {
+      const formData = new FormData();
+      formData.append("bank", "paypal");
+      formData.append("type", "null");
+      formData.append("currency", currency);
+      formData.append("amount", amount);
+      formData.append("email", email);
+      console.log("FormData", formData);
+    } else {
+      alertMessage("Kindly Select All the Fields");
+    }
+  };
 
   return (
     <ScrollView
@@ -68,7 +63,7 @@ export default WithdrawCrypto = () => {
             paddingHorizontal: width_screen * 0.05,
           }}
         >
-          <Text style={styles.depositText}>Crypto Currency</Text>
+          <Text style={styles.depositText}>Paypal</Text>
         </View>
         <StatusBar style="dark" />
 
@@ -96,23 +91,6 @@ export default WithdrawCrypto = () => {
           </View>
 
           <View style={styles.pickerView}>
-            <Text style={styles.textStyle}>CryptoCurrency</Text>
-            <Picker
-              selectedValue={cryptoType}
-              style={{
-                width: "100%",
-                fontSize: 10,
-                color: "#a4a4a4",
-                height: height_screen * 0.05,
-              }}
-              onValueChange={(itemValue, itemIndex) => setcryptoType(itemValue)}
-            >
-              <Picker.Item label="Select crypto(BTC)" value="" />
-              <Picker.Item label="BTC" value="BTC" />
-            </Picker>
-          </View>
-
-          <View style={styles.pickerView}>
             <Text style={styles.textStyle}>Withdrawal Amount</Text>
 
             <TextInput
@@ -120,32 +98,20 @@ export default WithdrawCrypto = () => {
               placeholder="Enter amount to withdraw"
               onChangeText={(data) => setamount(data)}
               placeholderTextColor="#a4a4a4"
+              keyboardType={"number-pad"}
               value={amount}
             />
           </View>
 
           <View style={styles.pickerView}>
-            <Text style={styles.textStyle}>Crypto Address</Text>
+            <Text style={styles.textStyle}>Paypal Email</Text>
 
             <TextInput
               style={styles.textInput}
-              placeholder="Enter Crypto Address"
-              onChangeText={(data) => setaddress(data)}
+              placeholder="Enter your Paypal Email"
+              onChangeText={(data) => setemail(data)}
               placeholderTextColor="#a4a4a4"
-              value={address}
-            />
-          </View>
-
-          <View style={styles.pickerView}>
-            <Text style={styles.textStyle}>Fx Rate</Text>
-
-            <TextInput
-              style={styles.textInput}
-              placeholder="Enter Fx Rate"
-              onChangeText={(data) => setrateFx(data)}
-              placeholderTextColor="#a4a4a4"
-              value={rateFx}
-              keyboardType={"number-pad"}
+              value={email}
             />
           </View>
 
