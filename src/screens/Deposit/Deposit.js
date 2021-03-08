@@ -43,8 +43,8 @@ export default Deposit = () => {
 
   useEffect(() => {
     console.log("getDepositMethod", methods);
-    // dispatch(getDepositMethod(login_Session?.data.country));
-    dispatch(getDepositMethod("Chile"));
+    dispatch(getDepositMethod(login_Session?.data.country));
+    // dispatch(getDepositMethod("Chile"));
   }, []);
 
   const onClickListener = (data) => {

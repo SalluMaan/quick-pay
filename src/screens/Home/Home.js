@@ -37,6 +37,7 @@ import { getLocation, getUserSessions } from "../../redux/auth/auth.actions";
 import axios from "axios";
 import { getLocation2, dataChart } from "../../utils/common/functions";
 import { getProfile } from "../../redux/user/user.actions";
+import { getAllTransactions } from "../../redux/transactions/transaction.action";
 
 export default Home = () => {
   const [email, setemail] = useState("");
@@ -44,11 +45,13 @@ export default Home = () => {
   const { navigate } = useNavigation();
   const dispatch = useDispatch();
   const { login_Session } = useSelector((state) => state?.auth);
+  const { transactions } = useSelector((state) => state?.transaction);
 
   useEffect(() => {
     getIp();
     dispatch(getProfile());
-  }, []);
+    dispatch(getAllTransactions());
+  }, [dispatch]);
 
   const getIp = () => {
     publicIP()
@@ -153,6 +156,13 @@ export default Home = () => {
             onPress={handleClick}
           />
         </View>
+
+        {Array.isArray(transactions) && transactions.length > 0
+          ? transactions.map((data, id) => (
+              <TransactionCard data={data} key={id} />
+            ))
+          : null}
+
         <TransactionCard />
         <TransactionCard />
         <TransactionCard />

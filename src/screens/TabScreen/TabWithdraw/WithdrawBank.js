@@ -25,6 +25,7 @@ import {
 import Currency from "../../../utils/currency";
 import WithdrawCard from "../../Withdraw/_Part/WithdrawCard";
 import { alertMessage } from "../../../utils/common/alertToastMessages";
+import { withDrawMethods } from "../../../redux/withdraw/withdraw.action";
 
 export default TabWithdraw = () => {
   const [email, setemail] = useState("");
@@ -63,7 +64,7 @@ export default TabWithdraw = () => {
 
     if (validate) {
       const formData = new FormData();
-      formData.append("bank", "local_Bank");
+      formData.append("bank", "local_bank");
       formData.append("type", "null");
       formData.append("currency", wallet);
       formData.append("amount", amount);
@@ -71,6 +72,7 @@ export default TabWithdraw = () => {
       formData.append("account_type", accountType);
       formData.append("bank_account_number", accountNumber);
       console.log("FormData", formData);
+      withDrawMethods(formData);
     } else {
       alertMessage("Kindly Select All the Fields");
     }
@@ -232,7 +234,7 @@ export default TabWithdraw = () => {
               onChangeText={(data) => setaccountNumber(data)}
               placeholderTextColor="#a4a4a4"
               keyboardType={"number-pad"}
-              value={email}
+              value={accountNumber}
             />
           </View>
 

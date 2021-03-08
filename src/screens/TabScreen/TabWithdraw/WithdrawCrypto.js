@@ -20,6 +20,7 @@ import WithdrawCard from "../../Withdraw/_Part/WithdrawCard";
 import Currency from "../../../utils/currency";
 import { useSelector } from "react-redux";
 import { add } from "react-native-reanimated";
+import { withDrawMethods } from "../../../redux/withdraw/withdraw.action";
 
 export default WithdrawCrypto = () => {
   const [email, setemail] = useState("");
@@ -31,21 +32,24 @@ export default WithdrawCrypto = () => {
   const [address, setaddress] = useState("");
   const [rateFx, setrateFx] = useState("");
 
-  // const handleLocalBank = () => {
-  //   const validate = currency && amount && email;
+  const handleCrypto = () => {
+    const validate = currency && cryptoType && address && rateFx && amount;
 
-  //   if (validate) {
-  //     const formData = new FormData();
-  //     formData.append("bank", "paypal");
-  //     formData.append("type", "null");
-  //     formData.append("currency", currency);
-  //     formData.append("amount", amount);
-  //     formData.append("email", email);
-  //     console.log("FormData", formData);
-  //   } else {
-  //     alertMessage("Kindly Select All the Fields");
-  //   }
-  // };
+    if (validate) {
+      const formData = new FormData();
+      formData.append("bank", "crypto");
+      formData.append("type", "null");
+      formData.append("currency", currency);
+      formData.append("amount", amount);
+      formData.append("crypto_currency", cryptoType);
+      formData.append("crypto_address", address);
+      formData.append("fx_rate", rateFx);
+      withDrawMethods(formData);
+      console.log("FormData", formData);
+    } else {
+      alertMessage("Kindly Select All the Fields");
+    }
+  };
 
   return (
     <ScrollView
@@ -121,6 +125,7 @@ export default WithdrawCrypto = () => {
               onChangeText={(data) => setamount(data)}
               placeholderTextColor="#a4a4a4"
               value={amount}
+              keyboardType={"number-pad"}
             />
           </View>
 
@@ -154,6 +159,7 @@ export default WithdrawCrypto = () => {
               text="Withdraw"
               height={height_screen * 0.06}
               width={width_screen * 0.5}
+              onPress={handleCrypto}
             />
           </View>
         </View>

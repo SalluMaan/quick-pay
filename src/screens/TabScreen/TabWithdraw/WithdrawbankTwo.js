@@ -28,6 +28,12 @@ import { alertMessage } from "../../../utils/common/alertToastMessages";
 
 export default WithdrawbankTwo = () => {
   const [email, setemail] = useState("");
+  const [city, setcity] = useState("");
+  const [accountTitle, setaccountTitle] = useState("");
+  const [iban, setiban] = useState("");
+  const [swiftCode, setswiftCode] = useState("");
+  const [address, setaddress] = useState("");
+
   const [wallet, setwallet] = useState("");
   const [Country, setCountry] = useState("");
   const [accountType, setaccountType] = useState("");
@@ -56,17 +62,32 @@ export default WithdrawbankTwo = () => {
 
   const handleLocalBank = () => {
     const validate =
-      wallet && Country && accountType && bankName && amount && accountNumber;
+      wallet &&
+      Country &&
+      bankName &&
+      amount &&
+      accountNumber &&
+      address &&
+      city &&
+      iban &&
+      swiftCode &&
+      accountTitle &&
+      accountNumber;
 
     if (validate) {
       const formData = new FormData();
-      formData.append("bank", "local_Bank");
+      formData.append("bank", "international_bank");
       formData.append("type", "null");
       formData.append("currency", wallet);
       formData.append("amount", amount);
       formData.append("bank_name", bankName);
-      formData.append("account_type", accountType);
-      formData.append("bank_account_number", accountNumber);
+      formData.append("address", address);
+      formData.append("city", city);
+      formData.append("country", Country);
+      formData.append("iban", iban);
+      formData.append("swift_code", swiftCode);
+      formData.append("account_title", accountTitle);
+      formData.append("account_number", accountNumber);
       console.log("FormData", formData);
     } else {
       alertMessage("Kindly Select All the Fields");
@@ -132,6 +153,18 @@ export default WithdrawbankTwo = () => {
           </View>
 
           <View style={styles.pickerView}>
+            <Text style={styles.textStyle}>City</Text>
+
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter City Name"
+              onChangeText={(data) => setcity(data)}
+              placeholderTextColor="#a4a4a4"
+              value={city}
+            />
+          </View>
+
+          <View style={styles.pickerView}>
             <Text style={styles.textStyle}>Country</Text>
             <Picker
               selectedValue={Country}
@@ -153,33 +186,17 @@ export default WithdrawbankTwo = () => {
           </View>
 
           <View style={styles.pickerView}>
-            <Text style={styles.textStyle}>Account Type</Text>
-            <Picker
-              selectedValue={accountType}
-              style={{
-                width: "100%",
-                fontSize: 10,
-                color: "#a4a4a4",
-                height: height_screen * 0.05,
-              }}
-              onValueChange={(itemValue, itemIndex) =>
-                setaccountType(itemValue)
-              }
-            >
-              <Picker.Item label="Select Account Type" value="" />
-              {/* {Array.isArray(account_types) && account_types.length > 0
-              ? account_types.map((data, id) => (
-                  <Picker.Item key={id} label={data} value={data} />
-                ))
-              : null} */}
+            <Text style={styles.textStyle}>Address</Text>
 
-              {account_types
-                ? Object.entries(account_types).map(([k, v], id) => (
-                    <Picker.Item key={id} label={k} value={v} />
-                  ))
-                : null}
-            </Picker>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter Your Address"
+              onChangeText={(data) => setaddress(data)}
+              placeholderTextColor="#a4a4a4"
+              value={address}
+            />
           </View>
+
           {Country ? (
             <View style={styles.pickerView}>
               <Text style={styles.textStyle}>Bank Name</Text>
@@ -219,6 +236,42 @@ export default WithdrawbankTwo = () => {
               <Picker.Item label="Paypal" value="js" />
             </Picker>
           </View> */}
+
+          <View style={styles.pickerView}>
+            <Text style={styles.textStyle}>Account Title</Text>
+
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter Account Title"
+              onChangeText={(data) => setaccountTitle(data)}
+              placeholderTextColor="#a4a4a4"
+              value={accountTitle}
+            />
+          </View>
+
+          <View style={styles.pickerView}>
+            <Text style={styles.textStyle}>IBAN Number</Text>
+
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter IBAN Number"
+              onChangeText={(data) => setiban(data)}
+              placeholderTextColor="#a4a4a4"
+              value={accountTitle}
+            />
+          </View>
+
+          <View style={styles.pickerView}>
+            <Text style={styles.textStyle}>Swift Code</Text>
+
+            <TextInput
+              style={styles.textInput}
+              placeholder="Enter Swift Code"
+              onChangeText={(data) => setswiftCode(data)}
+              placeholderTextColor="#a4a4a4"
+              value={swiftCode}
+            />
+          </View>
 
           <View style={styles.pickerView}>
             <Text style={styles.textStyle}>Bank Account#</Text>

@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize: height_screen * 0.022,
     width: width_screen,
     fontFamily: FONTS.Medium,
-
     // fontWeight: "500",
+    marginBottom: height_screen * 0.01,
   },
 });

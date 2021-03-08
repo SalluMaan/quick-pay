@@ -18,15 +18,17 @@ import { Picker } from "@react-native-community/picker";
 import FONTS from "../../../utils/fonts";
 import WithdrawCard from "../../Withdraw/_Part/WithdrawCard";
 import Currency from "../../../utils/currency";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { withDrawMethods } from "../../../redux/withdraw/withdraw.action";
 
 export default WithdrawPaypal = () => {
   const [email, setemail] = useState("");
   const { login_Session } = useSelector((state) => state?.auth);
   const [currency, setcurrency] = useState("");
   const [amount, setamount] = useState("");
+  const dispatch = useDispatch();
 
-  const handleLocalBank = () => {
+  const handlePaypal = () => {
     const validate = currency && amount && email;
 
     if (validate) {
@@ -37,6 +39,7 @@ export default WithdrawPaypal = () => {
       formData.append("amount", amount);
       formData.append("email", email);
       console.log("FormData", formData);
+      withDrawMethods(formData);
     } else {
       alertMessage("Kindly Select All the Fields");
     }
@@ -120,6 +123,7 @@ export default WithdrawPaypal = () => {
               text="Withdraw"
               height={height_screen * 0.06}
               width={width_screen * 0.5}
+              onPress={handlePaypal}
             />
           </View>
         </View>
